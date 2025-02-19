@@ -1,0 +1,24 @@
+{
+  "name": "smartmed-master",
+  "version": "1.0.0",
+  "description": "## `navigator.getUserMedia`",
+  "main": "face-api.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Romulodsr/smartmed-master.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Romulodsr/smartmed-master/issues"
+  },
+  "homepage": "https://github.com/Romulodsr/smartmed-master#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1"
+  }
+}

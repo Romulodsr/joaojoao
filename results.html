@@ -1,4 +1,3 @@
-</html>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -89,8 +88,6 @@
     </div>
     <!-- End Preloader -->
 
-
-
     <!-- Header Area -->
     <header class="header">
         <!-- Topbar -->
@@ -98,35 +95,35 @@
         <!-- End Topbar -->
         <!-- Header Inner -->
         <!-- Header Inner -->
-		<div class="header-inner"> <style>
+        <div class="header-inner"> <style>
             .header-inner {
                 background-color: #1A76D1;
             }
         </style>
-			<div class="container">
-				<div class="inner">
-					<div class="row">
-						<div class="col-lg-3 col-md-3 col-12">
-							<!-- Start Logo -->
-							<div class="logo"><img src="/img/smartmed.png" alt="">
-								<a href="index.html"
-									style="color: #1A76D1; font-size: 2em; font-family: 'Poppins', sans-serif;"></a>
-							</div>
-							<!-- End Logo -->
-							<!-- Mobile Nav -->
-							<div class="mobile-nav"></div>
-							<!-- End Mobile Nav -->
-						</div>
-						<div class="col-lg-7 col-md-9 col-12">
-							<!-- Main Menu -->
-			
-							<!--/ End Main Menu -->
-						</div>
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-12">
+                            <!-- Start Logo -->
+                            <div class="logo"><img src="/img/smartmed.png" alt="">
+                                <a href="index.html"
+                                    style="color: #1A76D1; font-size: 2em; font-family: 'Poppins', sans-serif;"></a>
+                            </div>
+                            <!-- End Logo -->
+                            <!-- Mobile Nav -->
+                            <div class="mobile-nav"></div>
+                            <!-- End Mobile Nav -->
+                        </div>
+                        <div class="col-lg-7 col-md-9 col-12">
+                            <!-- Main Menu -->
+            
+                            <!--/ End Main Menu -->
+                        </div>
 
-					</div>
-				</div>
-			</div>
-		</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--/ End Header Inner -->
     </header>
     <!-- End Header Area -->
@@ -137,12 +134,33 @@
         <div class="container">
             <h1>Resultados</h1>
             <div id="narrative" class="row"></div>
+            <button id="viewListButton" class="btn btn-primary" data-toggle="modal" data-target="#resultsModal">Imprimir Resultados</button>
         </div>
     </section>
     <!-- End Results Section -->
 
-   
+    <!-- Modal Structure -->
+    <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="resultsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultsModalLabel">Resultados</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="listView">
+                    <!-- List content will be inserted here -->
+                    <div id="qrcode"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const urlParams = new URLSearchParams(window.location.search);
@@ -231,55 +249,82 @@
             // Inserir a narrativa no HTML
             const narrativeContainer = document.getElementById('narrative');
             narrativeContainer.innerHTML = narrativa;
+
+            // Handle button click to show list view
+            const viewListButton = document.getElementById('viewListButton');
+            const listView = document.getElementById('listView');
+
+            viewListButton.addEventListener('click', function () {
+                const listContent = `
+                    <ul>
+                        <li>Nome: ${formData.nome}</li>
+                        <li>Telefone: ${formData.telefone}</li>
+                        <li>IMC: ${imc} (${categoriaImc})</li>
+                        <li>Frequência Cardíaca: ${frequenciaCardiaca} bpm</li>
+                        <li>Pressão Arterial: ${sistolica}/${diastolica} mmHg</li>
+                        <li>Saturação de Oxigênio: ${saturacaoOxigenio}</li>
+                        <li>Nível de Estresse: ${nivelEstresse}</li>
+                        <li>Risco de Doença Cardíaca: ${riscoDoencaCardiaca}</li>
+                        <li>Risco de AVC: ${riscoAVC}</li>
+                    </ul>
+                `;
+                listView.innerHTML = listContent;
+
+                // Generate QR code
+                const qrCodeData = `Nome: ${formData.nome}\nTelefone: ${formData.telefone}\nIMC: ${imc} (${categoriaImc})\nFrequência Cardíaca: ${frequenciaCardiaca} bpm\nPressão Arterial: ${sistolica}/${diastolica} mmHg\nSaturação de Oxigênio: ${saturacaoOxigenio}\nNível de Estresse: ${nivelEstresse}\nRisco de Doença Cardíaca: ${riscoDoencaCardiaca}\nRisco de AVC: ${riscoAVC}`;
+                const qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: qrCodeData,
+                    width: 128,
+                    height: 128
+                });
+            });
         });
     </script>
 
-
-           
-            <!-- jquery Min JS -->
-            <script src="js/jquery.min.js"></script>
-            <!-- jquery Migrate JS -->
-            <script src="js/jquery-migrate-3.0.0.js"></script>
-            <!-- jquery Ui JS -->
-            <script src="js/jquery-ui.min.js"></script>
-            <!-- Easing JS -->
-            <script src="js/easing.js"></script>
-            <!-- Color JS -->
-            <script src="js/colors.js"></script>
-            <!-- Popper JS -->
-            <script src="js/popper.min.js"></script>
-            <!-- Bootstrap Datepicker JS -->
-            <script src="js/bootstrap-datepicker.js"></script>
-            <!-- Jquery Nav JS -->
-            <script src="js/jquery.nav.js"></script>
-            <!-- Slicknav JS -->
-            <script src="js/slicknav.min.js"></script>
-            <!-- ScrollUp JS -->
-            <script src="js/jquery.scrollUp.min.js"></script>
-            <!-- Niceselect JS -->
-            <script src="js/niceselect.js"></script>
-            <!-- Tilt Jquery JS -->
-            <script src="js/tilt.jquery.min.js"></script>
-            <!-- Owl Carousel JS -->
-            <!-- <script src="js/owl-carousel.js"></script> -->
-            <!-- counterup JS -->
-            <script src="js/jquery.counterup.min.js"></script>
-            <!-- Steller JS -->
-            <script src="js/steller.js"></script>
-            <!-- Wow JS -->
-            <script src="js/wow.min.js"></script>
-            <!-- Magnific Popup JS -->
-            <script src="js/jquery.magnific-popup.min.js"></script>
-            <!-- Counter Up CDN JS -->
-            <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-            <!-- Bootstrap JS -->
-            <script src="js/bootstrap.min.js"></script>
-            <!-- Main JS -->
-            <script src="js/main.js"></script>
-            <!-- Face-App -->
-            <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
-            <!-- video -->
-            <!-- <video id="video" width="720" height="560" autoplay muted></video> -->
+    <!-- jquery Min JS -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jquery Migrate JS -->
+    <script src="js/jquery-migrate-3.0.0.js"></script>
+    <!-- jquery Ui JS -->
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- Easing JS -->
+    <script src="js/easing.js"></script>
+    <!-- Color JS -->
+    <script src="js/colors.js"></script>
+    <!-- Popper JS -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap Datepicker JS -->
+    <script src="js/bootstrap-datepicker.js"></script>
+    <!-- Jquery Nav JS -->
+    <script src="js/jquery.nav.js"></script>
+    <!-- Slicknav JS -->
+    <script src="js/slicknav.min.js"></script>
+    <!-- ScrollUp JS -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- Niceselect JS -->
+    <script src="js/niceselect.js"></script>
+    <!-- Tilt Jquery JS -->
+    <script src="js/tilt.jquery.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <!-- <script src="js/owl-carousel.js"></script> -->
+    <!-- counterup JS -->
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Steller JS -->
+    <script src="js/steller.js"></script>
+    <!-- Wow JS -->
+    <script src="js/wow.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- Counter Up CDN JS -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+    <!-- Face-App -->
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+    <!-- video -->
+    <!-- <video id="video" width="720" height="560" autoplay muted></video> -->
 </body>
 
 </html>

@@ -42,6 +42,14 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <style>.single-slider {
+        padding-bottom: 100px; /* Adjust as needed */
+    }
+    
+    .button {
+        margin-bottom: 50px; /* Adjust to create more space */
+    }
+    </style>
 </head>
 
 <body>
@@ -57,7 +65,7 @@
 			<div class="container">
 				<div class="inner">
 					<div class="row">
-						<div class="col-lg-3 col-md-3 col-12">
+						<div class="col-lg-3 col-md-3 col-18">
 							<!-- Start Logo -->
 							<div class="logo">
 								<a href="facial.html"
@@ -89,7 +97,7 @@
                 <div class="col-lg-7">
                     <div class="text">
                         <h1>Preencha as seguintes informações</h1>
-                        <form id="userForm" action="results.html" method="get">
+                        <form id="userForm" action="facial.html" method="get">
                             <div class="form-group">
                                 <label for="nome">Nome</label>
                                 <input type="text" class="form-control" id="nome" name="nome" required>
@@ -109,14 +117,14 @@
                             <div class="form-group">
                                 <label for="sexo">Sexo</label>
                                 <select class="form-control" id="sexo" name="sexo" required>
-                                    option value="" disabled selected>Selecione uma opção</option>
+                                    <option value="" disabled selected>Selecione uma opção</option>
                                     <option value="masculino">Masculino</option>
                                     <option value="feminino">Feminino</option>
                                     <option value="outro">Outro</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="altura">Altura em centímetros. Não usar vírgula ou ponto</label>
+                                <label for="altura">Altura</label>
                                 <input type="number" class="form-control" id="altura" name="altura" required>
                             </div>
                             <div class="form-group">
