@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -91,7 +90,7 @@
                 <p><strong>Data do Exame:</strong> <span id="dataExame"></span></p>
             </div>
             <div>
-                <p><strong>Data de Nascimento:</strong> <span id="dataNascimento"></span></p>
+                <p><strong>Idade:</strong> <span id="idade"></span></p>
                 <p><strong>Sexo:</strong> <span id="sexo"></span></p>
             </div>
         </div>
@@ -136,9 +135,6 @@
 
         <!-- Print Button -->
         <button id="printButton" class="print-button">Imprimir Resultados</button>
-
-        <!-- Finish Test Button -->
-        <button id="finishButton" class="print-button">Finalizar Teste</button>
     </div>
 
     <script>
@@ -192,10 +188,10 @@
             const currentDate = new Date().toLocaleDateString();
 
             // Fill in the values
-            document.getElementById('nome').textContent = formData.nome || 'Não informado';
+            document.getElementById('nome').textContent = formData.nome;
             document.getElementById('dataExame').textContent = currentDate;
-            document.getElementById('dataNascimento').textContent = formData.dataNascimento || 'Não informado';
-            document.getElementById('sexo').textContent = formData.sexo || 'Não informado';
+            document.getElementById('idade').textContent = calcularIdade(formData.dataNascimento);
+            document.getElementById('sexo').textContent = formData.sexo ;
             document.getElementById('imc').textContent = `${imc} (${categoriaImc})`;
             document.getElementById('riscoCardiaco').textContent = riscoCardiaco;
             document.getElementById('riscoAvc').textContent = riscoAvc;
@@ -203,11 +199,6 @@
             // Print Button Functionality
             document.getElementById('printButton').addEventListener('click', function () {
                 window.print();
-            });
-
-            // Finish Test Button Functionality
-            document.getElementById('finishButton').addEventListener('click', function () {
-                window.location.href = 'index.html';
             });
         });
     </script>

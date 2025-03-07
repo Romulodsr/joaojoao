@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #0073e6;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            background: #e9f5ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #0073e6;
+            color: white;
+        }
+        .section-title {
+            background: #f0f0f0;
+            padding: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><img src="./img/smartmed.png" alt=""></h1>
+        </div>
+        <div class="info">
+            <div>
+                <p><strong>Nome:</strong> ${formData.nome}</p>
+                <p><strong>Data do Exame:</strong> ${formData.idade}</p>
+            </div>
+            <div>
+                <p><strong>Idade:</strong> ${formData.dataNascimento}</p>
+                <p><strong>Sexo:</strong> ${formData.sexo}</p>
+       
+            </div>
+        </div>
+        
+        <table>
+            <tr class="section-title">
+                <td colspan="3">Resultado do Exame</td>
+            </tr>
+            <tr>
+                <th>Teste</th>
+
+                <th>Resultados</th>
+               
+            </tr>
+            <tr>
+                <td>Índice de Massa Corporal (IMC)</td>
+    
+                <td>${imc} (${categoriaImc})</td>
+            </tr>
+            <tr>
+                <td>Frequência Cardíaca</td>
+         
+                <td>71 bpm</td>
+            </tr>
+
+            <tr>
+                <td>Saturação de Oxigênio/td>
+     
+                <td>97%</td>
+            </tr>
+            <tr>
+                <td>Pressão Arterial</td>
+         
+                <td>132/76 mmHg</td>
+            </tr>
+            <tr>
+                <td>Nivel de Estresse</td>
+         
+                <td>132/76 mmHg</td>
+            </tr>        <tr>
+                <td>Risco de Doença Cardíaca</td>
+         
+                <td>Baixo</td>
+            </tr>        <tr>
+                <td>Risco de AVC</td>
+         
+                <td>132/76 mmHg</td>
+           
+        </table>
+    </div>
+</body>
+</html>

@@ -1,9 +1,28 @@
-# IMPORTANT: Bug Fixes
+# Health Examination Results Template
 
-## `navigator.getUserMedia`
+This is a simple HTML template to display health examination results. It includes fields for patient information and various health metrics.
 
-`navigator.getUserMedia` is now deprecated and is replaced by `navigator.mediaDevices.getUserMedia`. To fix this bug replace all versions of `navigator.getUserMedia` with `navigator.mediaDevices.getUserMedia`
+## Features
 
-## Low-end Devices Bug
+- Displays patient information such as name, date of birth, and sex.
+- Calculates and displays BMI (Body Mass Index) with categories.
+- Displays health metrics like heart rate, oxygen saturation, blood pressure, stress level, and risk of heart disease and stroke.
+- Includes buttons to print the results and finish the test.
 
-The video eventListener for `play` fires up too early on low-end machines, before the video is fully loaded, which causes errors to pop up from the Face API and terminates the script (tested on Debian [Firefox] and Windows [Chrome, Firefox]). Replaced by `playing` event, which fires up when the media has enough data to start playing.
+## Usage
+
+1. Clone the repository.
+2. Open `results.html` in a web browser.
+3. Pass the required parameters in the URL to populate the fields.
+
+## Example
+
+To use the template, pass the following parameters in the URL:
+
+```
+results.html?nome=John+Doe&dataNascimento=1980-01-01&sexo=Male&altura=180&peso=75&hipertensao=sim&fuma=nao
+```
+
+## License
+
+This project is licensed under the MIT License.
